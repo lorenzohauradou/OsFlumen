@@ -30,7 +30,7 @@ export default function Where() {
       actions: [
         {
           text: "Chiama",
-          href: "tel:+(39) 331 965 6784",
+          href: "tel:+393319656784",
         },
         {
           text: "",

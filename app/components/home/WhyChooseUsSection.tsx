@@ -42,7 +42,7 @@ export default function WhyChooseUsSection() {
           <div className="relative">
             <div className="relative aspect-[4/5] w-full">
               <Image
-                src="/images/OsFlumen_etichetta.JPEG"
+                src="/images/OsFlumen_etichetta.png"
                 alt="Historical illustration of Maison de Poste de Bocca di Fiume"
                 fill
                 className="object-cover rounded-lg"

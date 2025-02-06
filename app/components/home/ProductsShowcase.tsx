@@ -23,7 +23,7 @@ const products: Product[] = [
     name: "6x Bottiglie Olio EVO",
     price: 75,
     image:
-      "/images/product_bottle.png",
+      "/images/bottles_product.png",
     buttonColor: "black",
   },
   {
@@ -31,7 +31,7 @@ const products: Product[] = [
     name: "Latta Olio EVO",
     price: 149,
     image:
-      "/images/product_bottle.png",
+      "/images/OsFlumen_etichetta.png",
     buttonColor: "black",
   },
 ]
@@ -40,11 +40,23 @@ export default function ProductsShowcase() {
   return (
     <section className="relative py-28 bg-cream-light">
       {/* Background decoration */}
-      <div className="absolute top-[-5] right-[-2%] w-64 h-64 lg:w-72 lg:h-72 md:w-64 md:h-64 opacity-20">
-        <Image src="/images/rametto.png" alt="" fill className="object-contain scale-x-[-1]" aria-hidden="true" />
+      <div className="absolute top-0 right-[-2%] w-64 h-64 lg:w-72 lg:h-72 md:w-64 md:h-64 opacity-20">
+        <Image 
+          src="/images/rametto.png" 
+          alt="" 
+          fill 
+          className="object-contain scale-x-[-1]" 
+          aria-hidden="true" 
+        />
       </div>
-      <div className="absolute bottom-[-70] left-[-2%] w-60 h-60 lg:w-72 lg:h-72 md:w-60 md:h-60 opacity-20">
-        <Image src="/images/rametto.png" alt="" fill className="object-contain" aria-hidden="true" />
+      <div className="absolute bottom-[-60px] lg:bottom-[-100px] left-[-20%] lg:left-[-5%] w-80 h-80 lg:w-80 lg:h-80 md:w-60 md:h-60 opacity-20">
+        <Image 
+          src="/images/rametto.png" 
+          alt="" 
+          fill 
+          className="object-contain" 
+          aria-hidden="true" 
+        />
       </div>
 
 

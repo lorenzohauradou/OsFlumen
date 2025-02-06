@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-6 pt-32 pb-16">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-8 mb-16 text-center lg:text-left md:text-left">
+            <div className="space-y-8 mb-8 lg:mb-16 text-center lg:text-left md:text-left">
               <div className="space-y-4">
                 <p className="font-serif font-bold text-xl text-charcoal-light">Bocca di Fiume, Latina, Italy</p>
                 <h1 className="font-serif text-5xl md:text-7xl text-charcoal-light">PRODOTTO BIOLOGICO</h1>
@@ -34,17 +34,46 @@ export default function Hero() {
               </Button>
             </div>
 
-            {/* Right Content */}
-            <div className="relative lg:mt-0 -mt-20">
-              {/* Immagine principale */}
-              <div className="relative aspect-square">
-                <div className="absolute inset-0 bg-gradient-to-br from-cream-light/50 to-transparent rounded-3xl" />
-                <Image 
-                  src="/images/olive.png" 
-                  alt="Olio extravergine di oliva, Os Flumen"
-                  fill
-                  className="object-cover rounded-full shadow-lg shadow-charcoal-dark/55 backdrop-blur-0"
-                />
+            {/* Right Content - Images Grid */}
+            <div className="relative lg:mt-[70px] -mt-8">
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
+                {/* Prima immagine - Olive */}
+                <div className="relative aspect-square col-span-2 md:col-span-1 w-full max-w-[280px] md:max-w-full mx-auto">
+                  <div className="absolute rounded-3xl z-10" />
+                  <div className="absolute -inset-1 bg-gold-light/30 blur-3xl rounded-3xl opacity-40" />
+                  
+                  <Image 
+                    src="/images/olive.png" 
+                    alt="Olive fresche del nostro uliveto"
+                    width={450}
+                    height={450}
+                    className="object-cover rounded-3xl shadow-xl shadow-charcoal-dark/50 relative z-0"
+                    priority
+                  />
+                  
+                  <div className="absolute inset-0 rounded-3xl border-1 border-gold-light" />
+                </div>
+
+                {/* Seconda immagine - Bottiglie */}
+                <div className="relative aspect-square col-span-2 md:col-span-1 mt-4 md:mt-12 w-full max-w-[280px] md:max-w-full mx-auto">
+                    <div className="absolute inset-0 bg-gradient-to-br from-cream-light/20 via-transparent to-cream-dark/20 rounded-3xl z-10" />
+                  <div className="absolute -inset-1 bg-gold-DEFAULT/30 blur-3xl rounded-3xl opacity-40" />
+                  
+                  <Image 
+                    src="/images/bottles.png" 
+                    alt="Le nostre bottiglie di olio"
+                    width={450}
+                    height={450}
+                    className="object-cover rounded-3xl shadow-xl shadow-charcoal-dark/50 relative z-0"
+                    priority
+                  />
+                  
+                  <div className="absolute inset-0 rounded-3xl border-1 border-gold-light" />
+                </div>
+
+                {/* Elementi decorativi */}
+                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-cream-light/40 rounded-full blur-md hidden md:block" />
+                <div className="absolute -top-8 -left-8 w-40 h-40 bg-gold-light/20 rounded-full blur-md hidden md:block" />
               </div>
             </div>
           </div>
