@@ -54,7 +54,7 @@ export default function Recensioni() {
       role: "Executive Chef",
       rating: 5,
       comment:
-        "L&apos;olio extravergine d&apos;oliva Os Flumen è diventato un ingrediente essenziale in nostra cucina. Il suo sapore autentico migliora ogni piatto che creiamo.",
+        "L'olio extravergine d'oliva Os Flumen è diventato un ingrediente essenziale in nostra cucina. Il suo sapore autentico migliora ogni piatto che creiamo.",
       date: "Gennaio 2025",
       image:
         "/images/recensioni/recensione1.jpeg",
@@ -65,7 +65,7 @@ export default function Recensioni() {
       author: "Sofia Bianchi",
       role: "Food Critic",
       rating: 5,
-      comment: "Un olio extravergine d&apos;oliva veramente eccezionale che coglie l&apos;essenza della tradizione italiana.",
+      comment: "Un olio extravergine d'oliva veramente eccezionale che coglie l&apos;essenza della tradizione italiana.",
       date: "Dicembre 2024",
       image: "/images/recensioni/recensione2.jpeg",
       location: "Gourmet Magazine",

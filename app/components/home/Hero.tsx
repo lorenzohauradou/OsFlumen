@@ -40,8 +40,6 @@ export default function Hero() {
                 {/* Prima immagine - Olive */}
                 <div className="relative aspect-square col-span-2 md:col-span-1 w-full max-w-[280px] md:max-w-full mx-auto">
                   <div className="absolute rounded-3xl z-10" />
-                  <div className="absolute -inset-1 bg-gold-light/30 blur-3xl rounded-3xl opacity-40" />
-                  
                   <Image 
                     src="/images/olive.png" 
                     alt="Olive fresche del nostro uliveto"
@@ -64,7 +62,7 @@ export default function Hero() {
                     alt="Le nostre bottiglie di olio"
                     width={450}
                     height={450}
-                    className="object-cover rounded-3xl shadow-xl shadow-charcoal-dark/50 relative z-0"
+                    className="object-cover rounded-3xl shadow-xl shadow-charcoal-dark/50 hidden md:block relative z-0"
                     priority
                   />
                   

@@ -8,7 +8,7 @@ export default function WhyChooseUsSection() {
       icon: <History className="w-6 h-6" />,
       title: "Storia ricca",
       description:
-        "La nostra storia inizia nel borgo storico di Bocca di Fiume, dove la produzione di olio extravergine d&apos;oliva è stata perfezionata su generazioni.",
+        "La nostra storia inizia nel borgo storico di Bocca di Fiume, dove la produzione di olio extravergine d'oliva è stata perfezionata su generazioni.",
     },
     {
       icon: <Award className="w-6 h-6" />,
