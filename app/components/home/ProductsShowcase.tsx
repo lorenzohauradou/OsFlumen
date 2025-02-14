@@ -31,7 +31,7 @@ const products: Product[] = [
     name: "Latta Olio EVO",
     price: 149,
     image:
-      "/images/OsFlumen_etichetta.png",
+      "/images/latta3L.png",
     buttonColor: "black",
   },
 ]
