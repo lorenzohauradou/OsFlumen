@@ -65,7 +65,7 @@ export default function Recensioni() {
       author: "Sofia Bianchi",
       role: "Food Critic",
       rating: 5,
-      comment: "Un olio extravergine d'oliva veramente eccezionale che coglie l&apos;essenza della tradizione italiana.",
+      comment: "Un olio extravergine d'oliva veramente eccezionale che coglie l'essenza della tradizione italiana.",
       date: "Dicembre 2024",
       image: "/images/recensioni/recensione2.jpeg",
       location: "Gourmet Magazine",
