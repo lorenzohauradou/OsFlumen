@@ -31,6 +31,9 @@ const italiana = Italiana({
 export const metadata: Metadata = {
   title: "OsFlumen | Olio extravergine di oliva Biologico",
   description: "Olio extravergine di oliva Biologico di alta qualità.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
