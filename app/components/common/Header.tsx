@@ -24,12 +24,8 @@ export function Header() {
       <div className="w-full bg-gradient-to-br from-white via-cream-light to-white backdrop-blur-sm rounded-full border border-[#E8E6E1] max-w-7xl mx-auto">
         <div className="px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/images/osflumen_logo.png" alt="OsFlumen" width={32} height={32} className="w-8 h-8" />
-            <span className="text-4xl font-medium font-serif">
-              <span className="text-charcoal-light">Os</span>
-              <span className="text-charcoal-light">Flumen</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image src="/images/brandOSFLUMENmarroneRGB.png" alt="OsFlumen" width={150} height={150} className="mb-4" />
           </Link>
 
           {/* Navigation */}
