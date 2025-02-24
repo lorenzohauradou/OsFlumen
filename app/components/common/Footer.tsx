@@ -4,6 +4,7 @@ import { Input } from "../ui/Input"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import type React from "react"
+import Image from "next/image"
 
 export default function Footer() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -56,11 +57,14 @@ export default function Footer() {
 
           {/* Center Logo and Links */}
           <div className="flex flex-col items-center text-center">
-            <Link href="/" className="mb-8">
-              <span className="font-serif text-6xl">
-                <span className="text-white">Os</span>
-                <span className="text-[#fdc12c]">Flumen</span>
-              </span>
+            <Link href="/" className="mb-8 block">
+              <Image 
+                src="/images/brandOSFLUMENmarroneRGB.png"
+                alt="OsFlumen Logo"
+                width={200}
+                height={60}
+                className="w-32 md:w-48 lg:w-52 brightness-0 invert"
+              />
             </Link>
             <nav className="flex gap-8 font-sans">
               <Link href="/about" className="hover:text-gray-300 transition-colors">
