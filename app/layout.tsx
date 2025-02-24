@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Italiana } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Italiana, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import { Header } from "./components/common/Header";
@@ -27,6 +27,12 @@ const italiana = Italiana({
   variable: '--font-italiana'
 })
 
+const playfairDisplay = Playfair_Display({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-playfair-display'
+})
+
 // Metadati per SEO e social preview
 export const metadata: Metadata = {
   title: "OsFlumen | Olio extravergine di oliva Biologico",
@@ -49,6 +55,7 @@ export default function RootLayout({
           ${geistMono.variable} 
           ${inter.variable} 
           ${italiana.variable} 
+          ${playfairDisplay.variable}
           min-h-screen 
           flex 
           flex-col 

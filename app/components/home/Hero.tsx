@@ -25,7 +25,7 @@ export default function Hero() {
               <div className="space-y-4">
                 <p className="font-serif font-bold text-xl text-charcoal-light">Bocca di Fiume, Latina, Italy</p>
                 <h1 className="font-serif text-5xl md:text-7xl text-charcoal-light">PRODOTTO BIOLOGICO</h1>
-                <p className="max-w-md mx-auto lg:mx-0 text-charcoal-light font-sans text-lg md:text-left">
+                <p className="max-w-md mx-auto lg:mx-0 text-charcoal-light font-serif text-xl md:text-left">
                   Il nostro olio extravergine di oliva è stato selezionato con cura dai nostri esperti di gusto.
                 </p>
               </div>

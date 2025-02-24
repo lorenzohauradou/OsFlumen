@@ -12,7 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['var(--font-italiana)'],
+        serif: ['var(--font-playfair-display)'],
         sans: ['var(--font-inter)'],
       },
       colors: {
