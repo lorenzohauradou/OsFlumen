@@ -29,9 +29,9 @@ const products: Product[] = [
   {
     id: 3,
     name: "Latta Olio EVO",
-    price: 149,
+    price: 69,
     image:
-      "/images/product_bottle.png",
+      "/images/latta3L.png",
     buttonColor: "black",
   },
 ]
@@ -87,10 +87,10 @@ export default function ProductsShowcase() {
               <div className="relative w-48 h-60 mb-8 transition-transform duration-300 group-hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cream-light/20 rounded-full"></div>
                 <Image 
-                  src={product.image || "/placeholder.svg"} 
+                  src={product.image} 
                   alt={product.name} 
                   fill 
-                  className="object-contain" 
+                  className={`object-contain ${product.id === 3 ? 'scale-150 -translate-y-5' : ''}`}
                 />
               </div>
 
