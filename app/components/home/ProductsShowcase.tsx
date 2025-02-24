@@ -90,7 +90,10 @@ export default function ProductsShowcase() {
                   src={product.image} 
                   alt={product.name} 
                   fill 
-                  className={`object-contain ${product.id === 3 ? 'scale-125 -translate-y-5' : ''}`}
+                  className={`object-contain ${
+                    product.id === 3 ? 'scale-125' : 
+                    product.id === 2 ? 'scale-110' : ''
+                  }`}
                 />
               </div>
 
