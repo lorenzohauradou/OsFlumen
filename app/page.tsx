@@ -6,30 +6,33 @@ import Recensioni from './components/home/Recensioni';
 import Where from './components/home/Where';
 import Features from './components/home/Features';
 
+import { Analytics } from "@vercel/analytics/next"
+
 export default function HomePage() {
   return (
     <>
-    <section className='overflow-x-hidden'>
-      <div id="hero">
-        <Hero />
-      </div>
-      <div id="products">
-        <ProductsShowcase />
-      </div>
-      <div id="caratteristiche">
-        <Features />
-      </div>
-      <div id="about">
-        <WhyChooseUsSection />
-      </div>
-      <div id="reviews">
-        <Recensioni />
-      </div>
-      <div id="contacts">
-        <Where />
-      </div>
-      <Footer />
-    </section>
+      <section className='overflow-x-hidden'>
+        <div id="hero">
+          <Hero />
+        </div>
+        <div id="products">
+          <ProductsShowcase />
+        </div>
+        <div id="caratteristiche">
+          <Features />
+        </div>
+        <div id="about">
+          <WhyChooseUsSection />
+        </div>
+        <div id="reviews">
+          <Recensioni />
+        </div>
+        <div id="contacts">
+          <Where />
+        </div>
+        <Footer />
+      </section>
+      <Analytics />
     </>
   );
 }

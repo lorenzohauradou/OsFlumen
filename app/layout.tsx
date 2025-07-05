@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter'
 })
 
-const italiana = Italiana({ 
+const italiana = Italiana({
   weight: '400',  // Italiana viene solo in peso 400
   subsets: ['latin'],
   variable: '--font-italiana'
@@ -71,7 +71,7 @@ export default function RootLayout({
         </main>
 
         {/* FOOTER COMUNE */}
-        
+
       </body>
     </html>
   );

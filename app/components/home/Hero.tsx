@@ -15,7 +15,7 @@ export default function Hero() {
           <Image src="/images/rametto.png" alt="" fill className="object-contain" aria-hidden="true" />
         </div>
       </div>
-      
+
       <div className="relative">
         <Header />
         <div className="max-w-7xl mx-auto px-6 pt-32 pb-16">
@@ -40,32 +40,32 @@ export default function Hero() {
                 {/* Prima immagine - Olive */}
                 <div className="relative aspect-square col-span-2 md:col-span-1 w-full max-w-[280px] md:max-w-full mx-auto">
                   <div className="absolute rounded-3xl z-10" />
-                  <Image 
-                    src="/images/olive.png" 
+                  <Image
+                    src="/images/olive.png"
                     alt="Olive fresche del nostro uliveto"
                     width={450}
                     height={450}
                     className="object-cover rounded-3xl shadow-xl shadow-charcoal-dark/50 relative z-0"
                     priority
                   />
-                  
+
                   <div className="absolute inset-0 rounded-3xl border-1 border-gold-light" />
                 </div>
 
                 {/* Seconda immagine - Bottiglie */}
                 <div className="relative aspect-square col-span-2 md:col-span-1 mt-4 md:mt-12 w-full max-w-[280px] md:max-w-full mx-auto">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cream-light/20 via-transparent to-cream-dark/20 rounded-3xl z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-cream-light/20 via-transparent to-cream-dark/20 rounded-3xl z-10" />
                   <div className="absolute -inset-1 bg-gold-DEFAULT/30 blur-3xl rounded-3xl opacity-40" />
-                  
-                  <Image 
-                    src="/images/bottles.png" 
+
+                  <Image
+                    src="/images/bottles.png"
                     alt="Le nostre bottiglie di olio"
                     width={450}
                     height={450}
                     className="object-cover rounded-3xl shadow-xl shadow-charcoal-dark/50 hidden md:block relative z-0"
                     priority
                   />
-                  
+
                   <div className="absolute inset-0 rounded-3xl border-1 border-gold-light" />
                 </div>
 
