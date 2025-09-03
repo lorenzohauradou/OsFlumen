@@ -48,14 +48,13 @@ export default function Where() {
 
   return (
     <section className="relative bg-cream-light py-20">
-        {/* Background decoration */}
       <div className="absolute bottom-500 right-[-2%] w-80 h-80 opacity-20 mt-[-100px]">
         <Image src="/images/rametto.png" alt="" fill className="object-contain scale-x-[-1]" aria-hidden="true" />
       </div>
       <div className="absolute bottom-0 left-[-2%] w-80 h-80 opacity-20 mb-[-50px] hidden md:block">
         <Image src="/images/rametto.png" alt="" fill className="object-contain" aria-hidden="true" />
       </div>
-        
+
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl mb-6 text-charcoal-light">WHERE TO FIND US?</h2>
@@ -65,7 +64,6 @@ export default function Where() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Map Container */}
           <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg">
             <div
               className="absolute inset-0 bg-[#4A5724]/10 transition-opacity duration-300 z-10"
@@ -84,8 +82,6 @@ export default function Where() {
               className="grayscale hover:grayscale-0 transition-all duration-300"
             />
           </div>
-
-          {/* Contact Information */}
           <div className="grid gap-8">
             {contactInfo.map((info, index) => (
               <div key={index} className="bg-[#FDF8F4] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
@@ -129,8 +125,6 @@ export default function Where() {
           </div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-48 h-48 opacity-10">
         <div className="w-full h-full bg-[url('/olive-branch.svg')] bg-contain bg-no-repeat opacity-50" />
       </div>

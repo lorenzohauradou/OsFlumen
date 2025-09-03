@@ -1,12 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import { 
-  Droplets, 
-  Leaf, 
+import {
+  Droplets,
+  Leaf,
   Beaker,
-  Apple, 
-  UtensilsCrossed 
+  Apple,
+  UtensilsCrossed
 } from "lucide-react"
 import { useEffect } from "react"
 
@@ -51,7 +51,7 @@ export default function Features() {
           const target = entry.target as HTMLElement;
           const iconContainer = target.querySelector('.inline-flex') as HTMLElement;
           const heading = target.querySelector('h3') as HTMLElement;
-          
+
           target.classList.add('!opacity-100', '!translate-y-0', 'bg-white/50', 'shadow-md');
           iconContainer?.classList.add('!bg-cream-light', '!text-charcoal-light');
           heading?.classList.add('!text-charcoal-light');
@@ -59,7 +59,7 @@ export default function Features() {
           const target = entry.target as HTMLElement;
           const iconContainer = target.querySelector('.inline-flex') as HTMLElement;
           const heading = target.querySelector('h3') as HTMLElement;
-          
+
           target.classList.remove('!opacity-100', '!translate-y-0', 'bg-white/50', 'shadow-md');
           iconContainer?.classList.remove('!bg-cream-dark', '!text-charcoal-light');
           heading?.classList.remove('!text-charcoal-light');
@@ -81,7 +81,7 @@ export default function Features() {
 
   return (
     <section className="relative bg-cream-light py-24 overflow-hidden">
-      
+
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
@@ -97,8 +97,8 @@ export default function Features() {
             {/* Features Grid */}
             <div className="grid gap-10">
               {features.map((feature, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="group p-4 rounded-xl transition-all duration-300 opacity-0 translate-y-4"
                   data-feature-card
                 >
@@ -119,8 +119,6 @@ export default function Features() {
               ))}
             </div>
           </div>
-
-          {/* Right Column - Image */}
           <div className="relative">
             <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-xl">
               <Image
@@ -129,11 +127,8 @@ export default function Features() {
                 fill
                 className="object-cover"
               />
-              {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
             </div>
-            
-            {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-32 h-32 bg-cream-DEFAULT rounded-full -z-10" />
             <div className="absolute -bottom-4 -left-4 w-48 h-48 bg-gold-DEFAULT/10 rounded-full -z-10" />
           </div>

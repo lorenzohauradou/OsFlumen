@@ -50,7 +50,7 @@ export default function Recensioni() {
   const reviews: Review[] = [
     {
       id: 1,
-      author: "Chef Marco Rossi",
+      author: "",
       role: "Executive Chef",
       rating: 5,
       comment:
@@ -62,7 +62,7 @@ export default function Recensioni() {
     },
     {
       id: 2,
-      author: "Sofia Bianchi",
+      author: "",
       role: "Food Critic",
       rating: 5,
       comment: "Un olio extravergine d'oliva veramente eccezionale che coglie l'essenza della tradizione italiana.",
@@ -72,7 +72,7 @@ export default function Recensioni() {
     },
     {
       id: 3,
-      author: "Giuseppe Conti",
+      author: "",
       role: "Sommelier",
       rating: 4,
       comment: "Il perfetto compagno per esperienze di alta cucina. La qualità è subito evidente.",

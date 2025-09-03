@@ -31,14 +31,11 @@ export default function WhyChooseUsSection() {
 
   return (
     <section className="relative bg-cream-light py-20">
-      {/* Background decoration */}
       <div className="absolute lg:right-[-2.5%] md:right-[-2.5%] right-[-10%] w-72 h-72 opacity-20 lg:mt-[-150px] md:mt-[-150px] mt-[-220px] md:block">
         <Image src="/images/rametto.png" alt="" fill className="object-contain scale-x-[-1]" aria-hidden="true" />
       </div>
       <div className="max-w-7xl mx-auto px-6">
-        {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Image */}
           <div className="relative">
             <div className="relative aspect-[4/5] w-full">
               <Image
@@ -50,8 +47,6 @@ export default function WhyChooseUsSection() {
             </div>
             <div className="absolute inset-0 bg-[#4A5724]/10 rounded-lg" />
           </div>
-
-          {/* Right Column - Content */}
           <div className="space-y-8 text-center lg:text-left">
             <div>
               <h2 className="font-serif text-4xl md:text-5xl mb-6 text-charcoal-light">WHY CHOOSE US?</h2>
@@ -59,8 +54,6 @@ export default function WhyChooseUsSection() {
                 Dalla storia delle campagne pontine al tuo tavolo, portiamo avanti un patrimonio di qualità nella produzione di olio extravergine d&apos;oliva che si estende da generazioni.
               </p>
             </div>
-
-            {/* Features Grid */}
             <div className="grid sm:grid-cols-2 gap-8">
               {features.map((feature, index) => (
                 <div key={index} className="space-y-3">
@@ -72,8 +65,6 @@ export default function WhyChooseUsSection() {
                 </div>
               ))}
             </div>
-
-            {/* CTA Button */}
             <div className="flex justify-center lg:justify-start">
               <Button className="bg-charcoal-DEFAULT text-white rounded-full px-8 mt-8" variant="dark">
                 Scopri la nostra storia
@@ -81,11 +72,6 @@ export default function WhyChooseUsSection() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 right-0 w-48 h-48 opacity-10 hidden md:block">
-        <Image src="/olive-branch.svg" alt="" fill className="object-contain" aria-hidden="true" />
       </div>
     </section>
   )
