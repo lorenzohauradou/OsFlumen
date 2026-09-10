@@ -10,78 +10,94 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: { DEFAULT: "1.5rem", lg: "2rem" },
+      screens: { "2xl": "1280px" },
+    },
     extend: {
       fontFamily: {
-        serif: ['var(--font-playfair-display)'],
-        sans: ['var(--font-inter)'],
+        serif: ["var(--font-playfair)", "Georgia", "serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
+
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+        /* ---- Brand palette ------------------------------------------- */
+        // Warm off-whites, from lightest to deepest.
+        bone: {
+          50: "#FDFBF7",
+          100: "#F9F4EA",
+          200: "#F3EADA",
+          300: "#EADCC4",
+          400: "#DFCBAB",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-
-        backgroundBase: "#F3E4C8",
-        cardBase: "#f2ebdb",
-        gold: "#C4A484",
-        "gold-hover": "#B39476",
-
-        cream: {
-          light: '#f5f0e2',    // Sfondo più chiaro
-          DEFAULT: '#F3E4C8',  // Colore crema principale
-          dark: '#eae2d9',     // Sfondo cards
+        // Warm near-black used for text and dark surfaces.
+        ink: {
+          DEFAULT: "#1F1B16",
+          soft: "#3A342C",
+          muted: "#6B6157",
+          line: "#DED5C6",
         },
         olive: {
-          light: '#4A5724',    // Testo verde oliva chiaro
-          DEFAULT: '#3A4419',  // Verde oliva principale
-          dark: '#2C3312',     // Verde oliva scuro
+          light: "#5C6B33",
+          DEFAULT: "#3F4A22",
+          dark: "#2A3216",
         },
-        Gold: {
-          light: '#D4B494',    // Oro chiaro
-          DEFAULT: '#C4A484',  // Oro principale
-          dark: '#B39476',     // Oro scuro
+        // Brass accent — hairlines, small marks, price tags.
+        brass: {
+          light: "#D9BC94",
+          DEFAULT: "#B8945F",
+          dark: "#96774A",
         },
-        charcoal: {
-          light: '#404040',    // Grigio scuro chiaro
-          DEFAULT: '#303030',  // Grigio scuro principale
-          dark: '#1A1A1A',     // Grigio scuro più scuro
-        }
+
+        /* ---- Legacy aliases (kept so older markup keeps compiling) ---- */
+        cream: { light: "#F9F4EA", DEFAULT: "#F3EADA", dark: "#EADCC4" },
+        charcoal: { light: "#3A342C", DEFAULT: "#1F1B16", dark: "#12100D" },
+        gold: { light: "#D9BC94", DEFAULT: "#B8945F", dark: "#96774A" },
+      },
+
+      // Display sizes carry tight tracking; body copy stays generous.
+      letterSpacing: {
+        tightest: "-0.03em",
+        widest: "0.28em",
       },
 
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        sm: "0.25rem",
+        md: "0.5rem",
+        lg: "0.75rem",
+        xl: "1rem",
+        "2xl": "1.5rem",
+      },
+
+      boxShadow: {
+        soft: "0 1px 2px rgba(31,27,22,.04), 0 8px 24px -12px rgba(31,27,22,.12)",
+        lift: "0 2px 4px rgba(31,27,22,.04), 0 24px 48px -20px rgba(31,27,22,.22)",
+        inset: "inset 0 1px 0 rgba(255,255,255,.6)",
+      },
+
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(.22,.61,.36,1)",
+      },
+
+      keyframes: {
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(18px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        "fade-up": "fade-up .7s cubic-bezier(.22,.61,.36,1) both",
+        "fade-in": "fade-in .6s ease both",
+        marquee: "marquee 32s linear infinite",
       },
     },
   },

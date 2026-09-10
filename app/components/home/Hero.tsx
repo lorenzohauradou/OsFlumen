@@ -1,71 +1,123 @@
 import Image from "next/image"
-import { Header } from "../common/Header"
-import { Button } from "../ui/Button"
+import { ArrowDown } from "lucide-react"
 
+import { ButtonLink } from "../ui/Button"
+import { Reveal } from "../ui/Reveal"
+
+const MARKS = [
+  { value: "100%", label: "Biologico certificato" },
+  { value: "24h", label: "Dalla raccolta alla molitura" },
+  { value: "90/10", label: "Leccino e Frantoio" },
+]
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-cream-light">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-[-5%] right-[-2%] w-72 h-72 opacity-20">
-          <Image src="/images/rametto.png" alt="" fill className="object-contain scale-x-[-1]" aria-hidden="true" />
+    <section className="paper relative isolate overflow-hidden pt-[calc(var(--header-h)+3rem)] pb-20 lg:pb-28">
+      {/* Decorative foliage — purely ornamental, hidden from assistive tech. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -right-16 -top-10 h-72 w-72 opacity-[0.13] lg:h-96 lg:w-96">
+          <Image src="/images/rametto.png" alt="" fill className="scale-x-[-1] object-contain" />
         </div>
-        <div className="absolute bottom-[-5%] left-[-2%] w-72 h-72 opacity-20">
-          <Image src="/images/rametto.png" alt="" fill className="object-contain" aria-hidden="true" />
+        <div className="absolute -bottom-20 -left-20 h-72 w-72 opacity-[0.10] lg:h-96 lg:w-96">
+          <Image src="/images/rametto.png" alt="" fill className="object-contain" />
         </div>
       </div>
 
-      <div className="relative">
-        <Header />
-        <div className="max-w-7xl mx-auto px-6 pt-32 pb-16">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 mb-8 lg:mb-16 text-center lg:text-left md:text-left">
-              <div className="space-y-4">
-                <p className="font-serif font-bold text-xl text-charcoal-light">Bocca di Fiume, Latina, Italy</p>
-                <h1 className="font-serif text-5xl md:text-7xl text-charcoal-light">PRODOTTO BIOLOGICO</h1>
-                <p className="max-w-md mx-auto lg:mx-0 text-charcoal-light font-serif text-xl md:text-left">
-                  Il nostro olio extravergine di oliva è stato selezionato con cura dai nostri esperti di gusto.
-                </p>
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
+          {/* ---- Copy ------------------------------------------------- */}
+          <div>
+            <Reveal>
+              <span className="eyebrow">Bocca di Fiume · Latina · Italia</span>
+            </Reveal>
+
+            <Reveal delay={90}>
+              <h1 className="mt-7 max-w-[15ch] text-[2.6rem] leading-[1.02] tracking-tightest sm:text-[3.5rem] lg:text-[3.9rem] xl:text-[4.3rem]">
+                Olio extravergine
+                <br />
+                <span className="italic text-olive">biologico</span>, dalle
+                <br className="hidden sm:block" /> campagne pontine.
+              </h1>
+            </Reveal>
+
+            <Reveal delay={170}>
+              <p className="mt-7 max-w-md text-[17px] leading-relaxed text-ink-soft">
+                Olive raccolte a mano e molite a freddo nella stessa giornata.
+                Una cultivar Leccino e Frantoio che conserva intatto il suo
+                profilo aromatico, dal campo alla bottiglia
+              </p>
+            </Reveal>
+
+            <Reveal delay={250}>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <ButtonLink href="#products" size="lg">
+                  Scopri i prodotti
+                </ButtonLink>
+                <ButtonLink href="#about" variant="outline" size="lg">
+                  La nostra storia
+                  <ArrowDown className="h-4 w-4" aria-hidden />
+                </ButtonLink>
               </div>
-              <Button variant="dark" className="bg-charcoal-DEFAULT hover:bg-charcoal-light text-white rounded-full px-8">
-                Scopri di più
-              </Button>
-            </div>
-            <div className="relative lg:mt-[70px] -mt-8">
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                <div className="relative aspect-square col-span-2 md:col-span-1 w-full max-w-[280px] md:max-w-full mx-auto">
-                  <div className="absolute rounded-3xl z-10" />
-                  <Image
-                    src="/images/olive.png"
-                    alt="Olive fresche del nostro uliveto"
-                    width={450}
-                    height={450}
-                    className="object-cover rounded-3xl shadow-xl shadow-charcoal-dark/50 relative z-0"
-                    priority
-                  />
+            </Reveal>
 
-                  <div className="absolute inset-0 rounded-3xl border-1 border-gold-light" />
-                </div>
-                <div className="relative aspect-square col-span-2 md:col-span-1 mt-4 md:mt-12 w-full max-w-[280px] md:max-w-full mx-auto">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cream-light/20 via-transparent to-cream-dark/20 rounded-3xl z-10" />
-                  <div className="absolute -inset-1 bg-gold-DEFAULT/30 blur-3xl rounded-3xl opacity-40" />
+            {/* Trust marks */}
+            <Reveal delay={330}>
+              <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-ink-line pt-8">
+                {MARKS.map(({ value, label }) => (
+                  <div key={label}>
+                    <dt className="font-serif text-2xl text-ink sm:text-3xl">{value}</dt>
+                    <dd className="mt-1.5 text-[11px] uppercase leading-snug tracking-wider text-ink-muted">
+                      {label}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+          </div>
 
+          {/* ---- Imagery ---------------------------------------------- */}
+          <Reveal delay={200} className="relative">
+            <div className="relative mx-auto w-full max-w-[520px]">
+              {/* Brass frame offset behind the main image. */}
+              <div
+                aria-hidden
+                className="absolute -right-4 -top-4 hidden h-full w-full rounded-2xl border border-brass/45 sm:block"
+              />
+
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-lift">
+                <Image
+                  src="/images/olive.png"
+                  alt="Olive appena raccolte nell'uliveto OsFlumen"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 520px"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-ink/25 via-transparent to-transparent"
+                />
+              </div>
+
+              {/* Overlapping product card */}
+              <div className="absolute -bottom-10 -left-4 hidden w-44 rounded-xl border border-ink-line
+                              bg-bone-50/95 p-3 shadow-lift backdrop-blur sm:block lg:-left-12 lg:w-52">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-bone-200">
                   <Image
                     src="/images/bottles.png"
-                    alt="Le nostre bottiglie di olio"
-                    width={450}
-                    height={450}
-                    className="object-cover rounded-3xl shadow-xl shadow-charcoal-dark/50 hidden md:block relative z-0"
-                    priority
+                    alt="Le bottiglie di olio extravergine OsFlumen"
+                    fill
+                    sizes="208px"
+                    className="object-cover"
                   />
-
-                  <div className="absolute inset-0 rounded-3xl border-1 border-gold-light" />
                 </div>
-                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-cream-light/40 rounded-full blur-md hidden md:block" />
-                <div className="absolute -top-8 -left-8 w-40 h-40 bg-gold-light/20 rounded-full blur-md hidden md:block" />
+                <p className="mt-3 font-serif text-sm text-ink">Raccolto 2025</p>
+                <p className="text-[11px] uppercase tracking-wider text-ink-muted">
+                  Estratto a freddo
+                </p>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

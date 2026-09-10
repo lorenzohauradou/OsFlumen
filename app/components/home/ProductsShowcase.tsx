@@ -1,135 +1,161 @@
 import Image from "next/image"
-import { Button } from "../../components/ui/Button";
+
+import { ButtonLink } from "../ui/Button"
+import { Reveal } from "../ui/Reveal"
+import { SectionHeading } from "../ui/SectionHeading"
 
 interface Product {
   id: number
   name: string
+  format: string
   price: number
   image: string
-  buttonColor?: "gold" | "black"
+  note: string
+  featured?: boolean
+  /** Extra scaling so each pack photograph fills its frame consistently. */
+  imageClass?: string
 }
+
+const WHATSAPP = "https://wa.me/393319656784"
 
 const products: Product[] = [
   {
     id: 1,
-    name: "Bottiglia Olio EVO",
+    name: "Bottiglia",
+    format: "500 ml",
     price: 14,
-    image:
-      "/images/product_bottle.png",
-    buttonColor: "gold",
+    image: "/images/product_bottle.png",
+    note: "Il formato da tavola, per l'uso quotidiano a crudo.",
+    featured: true,
   },
   {
     id: 2,
-    name: "6x Bottiglie Olio EVO",
+    name: "Confezione da sei",
+    format: "6 × 500 ml",
     price: 75,
-    image:
-      "/images/bottles_product.png",
-    buttonColor: "black",
+    image: "/images/bottles_product.png",
+    note: "La scorta di famiglia, con un risparmio sul singolo pezzo.",
+    imageClass: "scale-110",
   },
   {
     id: 3,
-    name: "Latta Olio EVO",
+    name: "Latta",
+    format: "3 L",
     price: 69,
-    image:
-      "/images/latta3L.png",
-    buttonColor: "black",
+    image: "/images/latta3L.png",
+    note: "Latta schermata dalla luce, ideale per la conservazione lunga.",
+    imageClass: "scale-[1.18]",
   },
 ]
 
+const euro = new Intl.NumberFormat("it-IT", {
+  style: "currency",
+  currency: "EUR",
+  minimumFractionDigits: 0,
+})
+
 export default function ProductsShowcase() {
   return (
-    <section className="relative py-28 bg-cream-light">
-      <div className="absolute top-0 right-[-2%] w-64 h-64 lg:w-72 lg:h-72 md:w-64 md:h-64 opacity-20">
-        <Image
-          src="/images/rametto.png"
-          alt=""
-          fill
-          className="object-contain scale-x-[-1]"
-          aria-hidden="true"
-        />
+    <section className="relative overflow-hidden bg-bone-100 py-24 lg:py-32">
+      <div aria-hidden className="pointer-events-none absolute -right-24 top-10 -z-0 h-80 w-80 opacity-[0.09]">
+        <Image src="/images/rametto.png" alt="" fill className="scale-x-[-1] object-contain" />
       </div>
-      <div className="absolute bottom-[-60px] lg:bottom-[-100px] left-[-20%] lg:left-[-5%] w-80 h-80 lg:w-80 lg:h-80 md:w-60 md:h-60 opacity-20">
-        <Image
-          src="/images/rametto.png"
-          alt=""
-          fill
-          className="object-contain"
-          aria-hidden="true"
-        />
-      </div>
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-serif mb-16 text-charcoal-light">OUR MAIN PRODUCTS</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="group p-8 flex flex-col border border-charcoal-light/20 rounded-lg items-center relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-cream-light via-cream-dark to-cream-light"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cream-dark to-transparent"></div>
-              <div className="absolute top-4 right-4">
-                <Image
-                  src="/images/osflumen_logo.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className="opacity-30 transition-opacity duration-300 group-hover:opacity-100"
-                />
-              </div>
-              <div className="relative w-48 h-60 mb-8 transition-transform duration-300 group-hover:scale-105">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cream-light/20 rounded-full"></div>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className={`object-contain ${product.id === 3 ? 'scale-125' :
-                      product.id === 2 ? 'scale-110' : ''
-                    }`}
-                />
-              </div>
-              <div className="w-full space-y-4">
-                <div className="flex items-center justify-between border-b border-cream-dark/30 pb-4">
-                  <h3 className="text-lg font-bold font-serif text-charcoal-light">
-                    {product.name}
-                  </h3>
-                  <p className="text-lg font-medium text-charcoal-light">
-                    €{product.price}
+
+      <div className="relative mx-auto max-w-[1280px] px-6 lg:px-8">
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <SectionHeading
+            eyebrow="La selezione"
+            title={
+              <>
+                I nostri <span className="italic text-olive">formati</span>
+              </>
+            }
+            description="Un solo olio, tre formati. Stessa raccolta, stessa molitura: cambia soltanto quanto ne vuoi in dispensa."
+          />
+
+          <Reveal delay={120}>
+            <ButtonLink href={WHATSAPP} external variant="outline" className="shrink-0">
+              Richiedi il listino completo
+            </ButtonLink>
+          </Reveal>
+        </div>
+
+        <ul className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {products.map((product, i) => (
+            <Reveal as="li" key={product.id} delay={i * 110} className="h-full">
+              <article
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink-line
+                           bg-bone-50 transition-all duration-500 ease-smooth hover:-translate-y-1 hover:shadow-lift"
+              >
+                {/* Photograph */}
+                <div className="relative aspect-[4/5] overflow-hidden bg-bone-200/60">
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_0%,rgba(255,255,255,.9),transparent_65%)]"
+                  />
+                  {product.featured && (
+                    <span className="absolute left-4 top-4 z-10 rounded-full bg-olive px-3 py-1
+                                     text-[10px] uppercase tracking-widest text-bone-50">
+                      Più scelto
+                    </span>
+                  )}
+                  <Image
+                    src="/images/osflumen_logo.png"
+                    alt=""
+                    aria-hidden
+                    width={40}
+                    height={40}
+                    className="absolute right-4 top-4 z-10 opacity-25 transition-opacity duration-500 group-hover:opacity-70"
+                  />
+                  <Image
+                    src={product.image}
+                    alt={`OsFlumen ${product.name} — ${product.format}`}
+                    fill
+                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 400px"
+                    className={`object-contain p-8 transition-transform duration-700 ease-smooth
+                                group-hover:scale-[1.06] ${product.imageClass ?? ""}`}
+                  />
+                </div>
+
+                {/* Details */}
+                <div className="flex flex-1 flex-col border-t border-ink-line p-6">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-serif text-xl text-ink">{product.name}</h3>
+                    <span className="font-serif text-xl text-ink">
+                      {euro.format(product.price)}
+                    </span>
+                  </div>
+
+                  <p className="mt-1 text-[11px] uppercase tracking-widest text-brass-dark">
+                    {product.format}
                   </p>
-                </div>
 
-                <div className="border-b border-dashed border-charcoal-light/20 my-2" />
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-ink-soft">
+                    {product.note}
+                  </p>
 
-                <div className="flex items-center justify-between font-bold">
-                  <span className="text-sm text-charcoal-light/60">
-                    {product.id === 3 ? "3L" : "500ml"}
-                    {product.id === 2 ? " x6" : ""}
-                  </span>
-                  <Button
-                    variant="dark"
-                    className={`
-                      ${product.buttonColor === "gold"
-                        ? "bg-gold-DEFAULT hover:bg-gold-dark"
-                        : "bg-charcoal-DEFAULT hover:bg-charcoal-light"
-                      }
-                      text-white px-6 rounded-full text-center transition-all duration-300
-                    `}
+                  <ButtonLink
+                    href={`${WHATSAPP}?text=${encodeURIComponent(
+                      `Ciao OsFlumen, vorrei ordinare: ${product.name} (${product.format}).`
+                    )}`}
+                    external
+                    className="mt-6 w-full"
                   >
-                    Add +
-                  </Button>
+                    Ordina
+                    <span className="sr-only"> {product.name}</span>
+                  </ButtonLink>
                 </div>
-              </div>
-            </div>
+              </article>
+            </Reveal>
           ))}
-        </div>
-        <div className="flex justify-end mt-16">
-          <Button
-            variant="ghost"
-            className="bg-charcoal-DEFAULT text-white hover:bg-charcoal-light px-8 rounded-full text-lg"
-          >
-            Open Store
-          </Button>
-        </div>
+        </ul>
+
+        <Reveal delay={120}>
+          <p className="mt-10 text-center text-sm text-ink-muted">
+            Spedizioni in tutta Italia · Ritiro diretto in azienda su appuntamento
+          </p>
+        </Reveal>
       </div>
     </section>
   )
 }
-
