@@ -5,9 +5,7 @@ import animate from "tailwindcss-animate"
 const config: Config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
@@ -17,8 +15,10 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
+        serif: ["var(--font-display)", "Georgia", "serif"],
+        ui: ["var(--font-ui)", "system-ui", "sans-serif"],
+        sans: ["var(--font-ui)", "system-ui", "sans-serif"],
       },
 
       colors: {

@@ -20,9 +20,11 @@ export function Reveal({
   children,
   className = "",
   delay = 0,
-  as: Tag = "div",
+  as = "div",
 }: RevealProps) {
-  const ref = useRef<HTMLElement>(null)
+  // Cast: TS 5.8 can't reconcile the ref/style props across every intrinsic tag.
+  const Tag = as as unknown as "div"
+  const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
