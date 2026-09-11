@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next"
-import { Source_Serif_4, Instrument_Sans } from "next/font/google"
+import { Inter, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css"
 
-const display = Source_Serif_4({
+const display = Playfair_Display({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
@@ -12,9 +12,8 @@ const display = Source_Serif_4({
   display: "swap",
 })
 
-const ui = Instrument_Sans({
+const ui = Inter({
   subsets: ["latin"],
-  weight: ["400", "500"],
   variable: "--font-ui",
   display: "swap",
 })
