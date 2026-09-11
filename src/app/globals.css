@@ -110,6 +110,17 @@
     background-size: 180px 180px;
   }
 
+  /* Same grain, scoped to one plate — also hides the upscale on the aerial shot. */
+  .grain-plate {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .1;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 180px 180px;
+  }
+
   /* On phones the bottle sits in the upper half; copy takes the lower half. */
   @media (max-width: 767px) {
     .chapter { align-items: end; padding-block: 52svh 8svh; }
