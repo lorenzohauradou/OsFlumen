@@ -99,23 +99,6 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Overlapping product card */}
-              <div className="absolute -bottom-10 -left-4 hidden w-44 rounded-xl border border-ink-line
-                              bg-bone-50/95 p-3 shadow-lift backdrop-blur sm:block lg:-left-12 lg:w-52">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-bone-200">
-                  <Image
-                    src="/images/bottles.png"
-                    alt="Le bottiglie di olio extravergine OsFlumen"
-                    fill
-                    sizes="208px"
-                    className="object-cover"
-                  />
-                </div>
-                <p className="mt-3 font-serif text-sm text-ink">Raccolto 2025</p>
-                <p className="text-[11px] uppercase tracking-wider text-ink-muted">
-                  Estratto a freddo
-                </p>
-              </div>
             </div>
           </Reveal>
         </div>
