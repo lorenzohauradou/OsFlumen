@@ -93,12 +93,6 @@ export default function ProductsShowcase() {
                     aria-hidden
                     className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_0%,rgba(255,255,255,.9),transparent_65%)]"
                   />
-                  {product.featured && (
-                    <span className="absolute left-4 top-4 z-10 rounded-full bg-olive px-3 py-1
-                                     text-[10px] uppercase tracking-widest text-bone-50">
-                      Più scelto
-                    </span>
-                  )}
                   <Image
                     src="/images/osflumen_logo.png"
                     alt=""
@@ -149,12 +143,6 @@ export default function ProductsShowcase() {
             </Reveal>
           ))}
         </ul>
-
-        <Reveal delay={120}>
-          <p className="mt-10 text-center text-sm text-ink-muted">
-            Spedizioni in tutta Italia · Ritiro diretto in azienda su appuntamento
-          </p>
-        </Reveal>
       </div>
     </section>
   )

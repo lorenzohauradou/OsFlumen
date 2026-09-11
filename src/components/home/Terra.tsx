@@ -60,18 +60,6 @@ export default function Terra() {
       <div aria-hidden className="grain-plate" />
 
       <div className="relative flex h-full flex-col justify-between px-6 py-10 lg:px-8 lg:py-14">
-        <div className="mx-auto w-full max-w-[1280px]">
-          <h2
-            id="terra-title"
-            className="max-w-[19ch] text-[1.65rem] leading-[1.18] tracking-tightest text-bone-50 sm:text-[2.1rem] lg:text-[2.6rem]"
-          >
-            Tutto quello che finisce in bottiglia cresce in questa fotografia.
-          </h2>
-          <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-bone-50/80">
-            L&apos;uliveto di Bocca di Fiume visto dall&apos;alto, poche
-            settimane prima della raccolta.
-          </p>
-        </div>
 
         <div className="mx-auto w-full max-w-[1280px] text-right">
           <p className="font-sans text-[11px] uppercase tracking-widest text-bone-50/80">
