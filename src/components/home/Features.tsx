@@ -39,7 +39,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="relative overflow-hidden border-y border-ink-line bg-bone-50 py-24 lg:py-32">
+    <section id="caratteristiche" className="relative overflow-hidden border-y border-ink-line bg-bone-50 py-24 lg:py-32">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-[1fr_0.85fr] lg:gap-24">
           {/* ---- Editorial list -------------------------------------- */}

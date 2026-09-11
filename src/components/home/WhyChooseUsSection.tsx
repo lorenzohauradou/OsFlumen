@@ -33,7 +33,7 @@ const pillars = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="relative overflow-hidden bg-ink py-24 text-bone-100 lg:py-32">
+    <section id="about" className="relative overflow-hidden bg-ink py-24 text-bone-100 lg:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0

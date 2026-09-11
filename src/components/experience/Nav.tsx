@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 import { CHAPTERS, type ChapterId } from "@/lib/scrollState"
 import { scrollTo } from "@/lib/smoothScroll"
 
@@ -13,17 +15,26 @@ export function Nav({ active }: Props) {
   return (
     <header className="fixed inset-x-0 top-0 z-30 transition-colors duration-700" style={{ color: "var(--fg)" }}>
       <div className="flex h-[var(--header-h)] items-center justify-between px-5 sm:px-8 lg:px-[5.5rem]">
-        <a
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault()
-            scrollTo("#hero")
-          }}
-          className="font-display text-[1.65rem] font-semibold leading-none tracking-tight"
-          aria-label="Òs Flumen, torna all'inizio"
-        >
-          Òs Flumen
-        </a>
+        <div className="flex items-center gap-5">
+          <Link
+            href="/"
+            className="ui-strong opacity-70 transition-opacity duration-300 hover:opacity-100"
+            aria-label="Torna alla home"
+          >
+            ← Home
+          </Link>
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault()
+              scrollTo("#hero")
+            }}
+            className="font-display text-[1.65rem] font-semibold leading-none tracking-tight"
+            aria-label="Òs Flumen, torna all'inizio del capitolo"
+          >
+            Òs Flumen
+          </a>
+        </div>
 
         <nav aria-label="Capitoli" className="hidden lg:block">
           <ul className="flex items-center gap-7">

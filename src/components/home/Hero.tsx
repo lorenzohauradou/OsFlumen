@@ -12,7 +12,7 @@ const MARKS = [
 
 export default function Hero() {
   return (
-    <section className="paper relative isolate overflow-hidden pt-[calc(var(--header-h)+3rem)] pb-20 lg:pb-28">
+    <section id="hero" className="paper relative isolate overflow-hidden pt-[calc(var(--header-h)+3rem)] pb-20 lg:pb-28">
       {/* Decorative foliage — purely ornamental, hidden from assistive tech. */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -right-16 -top-10 h-72 w-72 opacity-[0.13] lg:h-96 lg:w-96">

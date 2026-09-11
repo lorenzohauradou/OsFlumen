@@ -16,6 +16,8 @@ const NAV = [
   { id: "contacts", label: "Contatti" },
 ]
 
+const EXPERIENCE_HREF = "/esperienza"
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -114,6 +116,14 @@ export function Header() {
                 </button>
               </li>
             ))}
+            <li>
+              <Link
+                href={EXPERIENCE_HREF}
+                className="relative py-1 text-[13px] uppercase tracking-[0.14em] text-brass transition-colors duration-300 hover:text-ink"
+              >
+                Esperienza 3D
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -161,6 +171,18 @@ export function Header() {
                 </button>
               </li>
             ))}
+            <li className="border-t border-ink-line/60">
+              <Link
+                href={EXPERIENCE_HREF}
+                onClick={() => setOpen(false)}
+                className="flex w-full items-baseline gap-4 py-4 text-left font-serif text-2xl text-brass"
+              >
+                <span className="font-sans text-[11px] tracking-widest text-brass">
+                  {String(NAV.length + 1).padStart(2, "0")}
+                </span>
+                Esperienza 3D
+              </Link>
+            </li>
           </ul>
 
           <a

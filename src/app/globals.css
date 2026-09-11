@@ -16,7 +16,7 @@
 
   html {
     -webkit-text-size-adjust: 100%;
-    scroll-padding-top: 0;
+    scroll-padding-top: var(--header-h);
   }
 
   body {

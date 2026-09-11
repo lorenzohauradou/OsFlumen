@@ -56,7 +56,7 @@ const euro = new Intl.NumberFormat("it-IT", {
 
 export default function ProductsShowcase() {
   return (
-    <section className="relative overflow-hidden bg-bone-100 py-24 lg:py-32">
+    <section id="products" className="relative overflow-hidden bg-bone-100 py-24 lg:py-32">
       <div aria-hidden className="pointer-events-none absolute -right-24 top-10 -z-0 h-80 w-80 opacity-[0.09]">
         <Image src="/images/rametto.png" alt="" fill className="scale-x-[-1] object-contain" />
       </div>

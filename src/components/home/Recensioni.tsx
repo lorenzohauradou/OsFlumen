@@ -129,7 +129,7 @@ export default function Recensioni() {
     reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
 
   return (
-    <section className="relative overflow-hidden bg-bone-100 py-24 lg:py-32">
+    <section id="reviews" className="relative overflow-hidden bg-bone-100 py-24 lg:py-32">
       <div aria-hidden className="pointer-events-none absolute -left-24 top-12 h-80 w-80 opacity-[0.09]">
         <Image src="/images/rametto.png" alt="" fill className="object-contain" />
       </div>
