@@ -39,9 +39,9 @@ const config: Config = {
           line: "#DED5C6",
         },
         olive: {
-          light: "#5C6B33",
-          DEFAULT: "#3F4A22",
-          dark: "#2A3216",
+          light: "#84995A",
+          DEFAULT: "#5F7137",
+          dark: "#47552A",
         },
         // Brass accent — hairlines, small marks, price tags.
         brass: {
@@ -56,10 +56,10 @@ const config: Config = {
         gold: { light: "#D9BC94", DEFAULT: "#B8945F", dark: "#96774A" },
       },
 
-      // Display sizes carry tight tracking; body copy stays generous.
+      // Source Serif is wide and sturdy: only a hair of negative tracking.
       letterSpacing: {
-        tightest: "-0.03em",
-        widest: "0.28em",
+        tightest: "-0.012em",
+        widest: "0.22em",
       },
 
       borderRadius: {

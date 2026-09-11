@@ -40,7 +40,7 @@ export default function Footer() {
         <div className="grid gap-10 py-16 lg:grid-cols-2 lg:items-end lg:gap-20 lg:py-20">
           <div>
             <span className="eyebrow text-bone-100/55 before:bg-brass">Newsletter</span>
-            <h2 className="mt-5 text-[2rem] leading-[1.05] tracking-tightest text-bone-50 sm:text-4xl lg:text-5xl">
+            <h2 className="mt-5 text-[1.8rem] leading-[1.15] tracking-tightest text-bone-50 sm:text-[2.2rem] lg:text-[2.6rem]">
               Raccolto, novità
               <br />
               e <span className="italic text-brass-light">degustazioni</span>

@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next"
-import { Cormorant_Garamond, Instrument_Sans } from "next/font/google"
+import { Source_Serif_4, Instrument_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css"
 
-const display = Cormorant_Garamond({
+const display = Source_Serif_4({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",

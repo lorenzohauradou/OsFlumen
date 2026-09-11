@@ -32,7 +32,7 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={90}>
-              <h1 className="mt-7 max-w-[15ch] text-[2.6rem] leading-[1.02] tracking-tightest sm:text-[3.5rem] lg:text-[3.9rem] xl:text-[4.3rem]">
+              <h1 className="mt-7 max-w-[17ch] text-[2.3rem] leading-[1.12] tracking-tightest sm:text-[2.95rem] lg:text-[3.25rem] xl:text-[3.5rem]">
                 Olio extravergine
                 <br />
                 <span className="italic text-olive">biologico</span>, dalle

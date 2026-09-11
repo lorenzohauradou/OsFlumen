@@ -79,8 +79,8 @@ export function Hero() {
       </div>
 
       <h1
-        className="pointer-events-none absolute inset-x-0 top-1/2 z-0 -translate-y-1/2 select-none text-center font-display font-semibold leading-none tracking-[-0.03em]"
-        style={{ fontSize: "clamp(5.2rem, 19vw, 19rem)", color: "var(--fg)" }}
+        className="pointer-events-none absolute inset-x-0 top-1/2 z-0 -translate-y-1/2 select-none text-center font-display font-medium leading-none tracking-[-0.02em]"
+        style={{ fontSize: "clamp(4.4rem, 15.5vw, 15.5rem)", color: "var(--fg)" }}
         aria-label={WORD}
       >
         {[...WORD].map((ch, i) => (
