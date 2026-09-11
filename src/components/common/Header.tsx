@@ -8,7 +8,7 @@ import { useCallback, useEffect, useState } from "react"
 import { Button, buttonStyles } from "../ui/Button"
 
 const NAV = [
-  { id: "hero", label: "Home" },
+  { id: "hero", label: "L\u2019olio" },
   { id: "products", label: "Prodotti" },
   { id: "caratteristiche", label: "Caratteristiche" },
   { id: "about", label: "Storia" },
@@ -79,12 +79,8 @@ export function Header() {
       <div className="mx-auto flex h-[var(--header-h)] max-w-[1280px] items-center justify-between gap-6 px-6 lg:px-8">
         <Link
           href="/"
-          aria-label="OsFlumen — torna all'inizio"
+          aria-label="Òs Flumen — torna alla copertina"
           className="shrink-0"
-          onClick={(e) => {
-            e.preventDefault()
-            goTo("hero")
-          }}
         >
           <Image
             src="/images/brandOSFLUMENmarroneRGB.png"

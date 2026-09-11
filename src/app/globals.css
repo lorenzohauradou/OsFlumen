@@ -221,3 +221,147 @@
   .reveal[data-visible="true"] { opacity: 1; transform: none; }
   .paper { background: #F9F4EA; }
 }
+
+/* ---- Cover ------------------------------------------------------------ */
+/* The opening page runs on its own tokens and its own serif: it is the
+   estate's title page, not another section of the shop. Everything here is
+   scoped under .cover so the rest of the site is untouched. */
+
+.cover {
+  --paper: #F4EDDE;
+  --paper-deep: #E8DDC6;
+  --bruno: #6B2E1D;
+  --bruno-soft: #8A5540;
+  --foglia: #5F6B3A;
+  --cielo: #A9C2CE;
+  --scuro: #2A241C;
+  --rigo: rgba(42, 36, 28, 0.16);
+
+  background: var(--paper);
+  color: var(--scuro);
+  font-family: var(--font-cover), Georgia, serif;
+}
+
+.cover h1,
+.cover h2,
+.cover h3 {
+  font-family: var(--font-cover), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Small data: the survey rail, the ledger keys, the plate captions. */
+.cover .dato {
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+
+/* The brown wordmark, recoloured to paper so it can sit on the photograph. */
+.cover-mark {
+  filter: brightness(0) invert(1) sepia(0.24) saturate(1.5) hue-rotate(-12deg)
+    drop-shadow(0 2px 26px rgba(30, 22, 14, 0.45));
+}
+
+/* Copy laid over the photograph: the horizon band is the brightest part of
+   the frame, so the text carries its own shadow rather than relying on the
+   scrim to darken the whole picture. */
+.cover-su-foto {
+  text-shadow: 0 1px 2px rgba(24, 18, 12, 0.4), 0 2px 22px rgba(24, 18, 12, 0.55);
+}
+
+/* Migliare: the reclaimed plain is ruled into a grid, and so is this page. */
+.cover-rule {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(244, 237, 222, 0.16) 0 1px,
+    transparent 1px 12.5%
+  );
+}
+
+.cover-stage-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(24, 18, 12, 0.26) 0%, rgba(24, 18, 12, 0) 28%),
+    linear-gradient(to top, var(--paper) 0%, rgba(244, 237, 222, 0.72) 6%, rgba(244, 237, 222, 0) 17%),
+    radial-gradient(105% 58% at 50% 46%, rgba(24, 18, 12, 0.26) 0%, rgba(24, 18, 12, 0) 66%);
+}
+
+/* One orchestrated arrival, staggered by --d; nothing else moves on scroll. */
+@keyframes cover-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.cover-rise {
+  opacity: 0;
+  animation: cover-rise 1.1s cubic-bezier(.22,.61,.36,1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-rise { opacity: 1; animation: none; }
+}
+
+/* The entry button: squared and wide, closer to a stamped label than a chip. */
+.cover-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding-inline: 2.25rem;
+  background: var(--paper);
+  color: var(--bruno);
+  font-family: var(--font-cover), Georgia, serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  transition: background .4s cubic-bezier(.22,.61,.36,1), color .4s, border-color .4s;
+}
+.cover-cta:hover {
+  background: var(--bruno);
+  color: var(--paper);
+  border-color: var(--bruno);
+}
+
+.cover-cta-dark {
+  background: var(--bruno);
+  color: var(--paper);
+  border-color: var(--bruno);
+}
+.cover-cta-dark:hover {
+  background: transparent;
+  color: var(--bruno);
+}
+
+/* Gallery: a scrolled strip, with the scrollbar hidden so the photographs
+   sit on the paper without a chrome rail under them. */
+.cover-track {
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.cover-track::-webkit-scrollbar { display: none; }
+
+.cover-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--bruno);
+  border: 1px solid var(--rigo);
+  border-radius: 999px;
+  transition: background .3s, border-color .3s, color .3s, opacity .3s;
+}
+.cover-nav:hover:not(:disabled) {
+  background: var(--bruno);
+  border-color: var(--bruno);
+  color: var(--paper);
+}
+.cover-nav:disabled { opacity: .3; cursor: default; }
