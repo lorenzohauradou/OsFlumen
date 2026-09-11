@@ -6,6 +6,12 @@
   :root {
     --header-h: 5rem;
 
+    /* Home site accent green — brighter/more saturated than the muted 3D
+       palette below on purpose. Edit here, not in tailwind.config. */
+    --olive-light: #5EB63E;
+    --olive: #397524;
+    --olive-dark: #2B541D;
+
     /* Chapter palette, tweened by GSAP as the reader scrolls. */
     --bg: #f6f0e3;
     --fg: #1e1a12;

@@ -36,7 +36,7 @@ export default function Hero() {
                 Olio extravergine
                 <br />
                 <span className="italic text-olive">biologico</span>, dalle
-                <br className="hidden sm:block" /> campagne pontine.
+                <br className="hidden sm:block" /> campagne pontine
               </h1>
             </Reveal>
 
@@ -86,7 +86,7 @@ export default function Hero() {
 
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-lift">
                 <Image
-                  src="/images/olive.png"
+                  src="/images/olive2.jpg"
                   alt="Olive appena raccolte nell'uliveto OsFlumen"
                   fill
                   priority

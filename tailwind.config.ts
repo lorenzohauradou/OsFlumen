@@ -38,10 +38,11 @@ const config: Config = {
           muted: "#6B6157",
           line: "#DED5C6",
         },
+        // Values live in globals.css (--olive*) so they can be tuned in one place.
         olive: {
-          light: "#84995A",
-          DEFAULT: "#5F7137",
-          dark: "#47552A",
+          light: "var(--olive-light)",
+          DEFAULT: "var(--olive)",
+          dark: "var(--olive-dark)",
         },
         // Brass accent — hairlines, small marks, price tags.
         brass: {

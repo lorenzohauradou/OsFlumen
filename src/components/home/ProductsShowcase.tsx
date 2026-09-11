@@ -25,7 +25,7 @@ const products: Product[] = [
     format: "500 ml",
     price: 14,
     image: "/images/product_bottle.png",
-    note: "Il formato da tavola, per l'uso quotidiano a crudo.",
+    note: "Il formato da tavola, per l'uso quotidiano a crudo",
     featured: true,
   },
   {
@@ -34,7 +34,7 @@ const products: Product[] = [
     format: "6 × 500 ml",
     price: 75,
     image: "/images/bottles_product.png",
-    note: "La scorta di famiglia, con un risparmio sul singolo pezzo.",
+    note: "La scorta di famiglia, con un risparmio sul singolo pezzo",
     imageClass: "scale-110",
   },
   {
@@ -43,7 +43,7 @@ const products: Product[] = [
     format: "3 L",
     price: 69,
     image: "/images/latta3L.png",
-    note: "Latta schermata dalla luce, ideale per la conservazione lunga.",
+    note: "Latta schermata dalla luce, ideale per la conservazione lunga",
     imageClass: "scale-[1.18]",
   },
 ]
@@ -70,7 +70,7 @@ export default function ProductsShowcase() {
                 I nostri <span className="italic text-olive">formati</span>
               </>
             }
-            description="Un solo olio, tre formati. Stessa raccolta, stessa molitura: cambia soltanto quanto ne vuoi in dispensa."
+            description="Un solo olio, tre formati. Stessa raccolta, stessa molitura: cambia soltanto quanto ne vuoi in dispensa"
           />
 
           <Reveal delay={120}>
