@@ -5,6 +5,8 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { useTexture } from "@react-three/drei"
 import * as THREE from "three"
 
+import { useSceneReady } from "./sceneReady"
+
 /**
  * The opening scene: the aerial photograph of the estate as a shader plate,
  * and the wordmark standing in front of it as real geometry.
@@ -132,7 +134,6 @@ type SceneProps = {
   photo: string
   mark: string
   box: MarkBox | null
-  onReady: () => void
 }
 
 /** Shared, smoothed pointer: both the photograph and the wordmark read it. */
@@ -158,13 +159,12 @@ function Photo({
   src,
   pointer,
   progress,
-  onReady,
 }: {
   src: string
   pointer: React.RefObject<THREE.Vector2>
   progress: React.RefObject<number>
-  onReady: () => void
 }) {
+  const onReady = useSceneReady()
   const texture = useTexture(src)
   const material = useRef<THREE.ShaderMaterial>(null)
   const { viewport, size, gl } = useThree()
@@ -189,7 +189,7 @@ function Photo({
     texture.needsUpdate = true
     const img = texture.image as { width: number; height: number }
     uniforms.uTexRes.value.set(img.width, img.height)
-    onReady()
+    onReady?.()
   }, [texture, gl, uniforms, onReady])
 
   useFrame((state) => {
@@ -234,32 +234,11 @@ function Wordmark({
   const group = useRef<THREE.Group>(null)
   const { viewport, size, gl } = useThree()
 
-  /* The logo is brown pixels on transparency, and a material's colour
-     multiplies what the map already holds — brown times cream is still brown.
-     Repaint it white once, keeping only its alpha, and every slice can then be
-     tinted freely. */
-  const stencil = useMemo(() => {
-    const img = texture.image as CanvasImageSource & {
-      width: number
-      height: number
-    }
-    const canvas = document.createElement("canvas")
-    canvas.width = img.width
-    canvas.height = img.height
-
-    const ctx = canvas.getContext("2d")!
-    ctx.drawImage(img, 0, 0)
-    ctx.globalCompositeOperation = "source-in"
-    ctx.fillStyle = "#ffffff"
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-    const tex = new THREE.CanvasTexture(canvas)
-    tex.colorSpace = THREE.SRGBColorSpace
-    tex.anisotropy = gl.capabilities.getMaxAnisotropy()
-    return tex
+  useEffect(() => {
+    texture.colorSpace = THREE.SRGBColorSpace
+    texture.anisotropy = gl.capabilities.getMaxAnisotropy()
+    texture.needsUpdate = true
   }, [texture, gl])
-
-  useEffect(() => () => stencil.dispose(), [stencil])
 
   // Map the box the DOM reserved onto world units, so the geometry lands
   // exactly where the fallback image would have been at any window size.
@@ -270,16 +249,16 @@ function Wordmark({
   const x = (box.x + box.w / 2 - size.width / 2) * perPx
   const y = (size.height / 2 - (box.y + box.h / 2)) * perPx
 
-  /* The face is paper; every slice behind it walks towards the brand brown, so
-     the sides of the letters darken the way a cut edge would. */
+  /* The map is the logo itself (#642F1A). The face multiplies by white so those
+     pixels stay exact; slices behind only lose luminance, so the cut edge still
+     reads as thickness without shifting the brown. */
   const slices = useMemo(() => {
-    const face = new THREE.Color("#FBF7EE")
-    const edge = new THREE.Color("#8A4A2E")
     return Array.from({ length: LAYERS }, (_, i) => {
       const k = i / (LAYERS - 1)
+      const shade = 1 - Math.pow(k, 0.42) * 0.38
       return {
         z: -k * depth,
-        color: face.clone().lerp(edge, Math.pow(k, 0.42)),
+        color: new THREE.Color(shade, shade, shade),
       }
     })
   }, [depth])
@@ -303,7 +282,7 @@ function Wordmark({
       <mesh position={[width * 0.004, -height * 0.018, -depth - width * 0.008]}>
         <planeGeometry args={[width, height]} />
         <meshBasicMaterial
-          map={stencil}
+          map={texture}
           color="#150E07"
           transparent
           opacity={0.22}
@@ -316,7 +295,7 @@ function Wordmark({
         <mesh key={i} position={[0, 0, z]}>
           <planeGeometry args={[width, height]} />
           <meshBasicMaterial
-            map={stencil}
+            map={texture}
             color={color}
             transparent
             alphaTest={0.45}
@@ -328,7 +307,7 @@ function Wordmark({
   )
 }
 
-function Scene({ photo, mark, box, onReady }: SceneProps) {
+function Scene({ photo, mark, box }: SceneProps) {
   const { aim, value } = usePointer()
   const elapsed = useRef(0)
   const progress = useRef(0)
@@ -348,7 +327,7 @@ function Scene({ photo, mark, box, onReady }: SceneProps) {
 
   return (
     <>
-      <Photo src={photo} pointer={value} progress={progress} onReady={onReady} />
+      <Photo src={photo} pointer={value} progress={progress} />
       {box && (
         <Wordmark src={mark} box={box} pointer={value} progress={progress} />
       )}

@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 
 import type { MarkBox } from "./LandPlate"
+import { SceneReadyContext } from "./sceneReady"
 
 const LandPlate = dynamic(() => import("./LandPlate"), { ssr: false })
 
@@ -28,6 +29,7 @@ export function Stage() {
   const [box, setBox] = useState<MarkBox | null>(null)
   const [animate, setAnimate] = useState(false)
   const [sceneReady, setSceneReady] = useState(false)
+  const markSceneReady = useCallback(() => setSceneReady(true), [])
 
   const measure = useCallback(() => {
     const el = markRef.current
@@ -70,12 +72,9 @@ export function Stage() {
             }`}
         />
         {animate && (
-          <LandPlate
-            photo={PHOTO}
-            mark={MARK}
-            box={box}
-            onReady={() => setSceneReady(true)}
-          />
+          <SceneReadyContext.Provider value={markSceneReady}>
+            <LandPlate photo={PHOTO} mark={MARK} box={box} />
+          </SceneReadyContext.Provider>
         )}
       </div>
 
