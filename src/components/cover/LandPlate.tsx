@@ -234,11 +234,31 @@ function Wordmark({
   const group = useRef<THREE.Group>(null)
   const { viewport, size, gl } = useThree()
 
-  useEffect(() => {
-    texture.colorSpace = THREE.SRGBColorSpace
-    texture.anisotropy = gl.capabilities.getMaxAnisotropy()
-    texture.needsUpdate = true
+  /* Keep only the logo's alpha, paint the pixels white, then tint every
+     slice. Otherwise the PNG brown multiplies the material colour and
+     #5b291c never lands. */
+  const stencil = useMemo(() => {
+    const img = texture.image as CanvasImageSource & {
+      width: number
+      height: number
+    }
+    const canvas = document.createElement("canvas")
+    canvas.width = img.width
+    canvas.height = img.height
+
+    const ctx = canvas.getContext("2d")!
+    ctx.drawImage(img, 0, 0)
+    ctx.globalCompositeOperation = "source-in"
+    ctx.fillStyle = "#ffffff"
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+    const tex = new THREE.CanvasTexture(canvas)
+    tex.colorSpace = THREE.SRGBColorSpace
+    tex.anisotropy = gl.capabilities.getMaxAnisotropy()
+    return tex
   }, [texture, gl])
+
+  useEffect(() => () => stencil.dispose(), [stencil])
 
   // Map the box the DOM reserved onto world units, so the geometry lands
   // exactly where the fallback image would have been at any window size.
@@ -249,16 +269,14 @@ function Wordmark({
   const x = (box.x + box.w / 2 - size.width / 2) * perPx
   const y = (size.height / 2 - (box.y + box.h / 2)) * perPx
 
-  /* The map is the logo itself (#642F1A). The face multiplies by white so those
-     pixels stay exact; slices behind only lose luminance, so the cut edge still
-     reads as thickness without shifting the brown. */
   const slices = useMemo(() => {
+    const face = new THREE.Color("#5b291c")
+    const edge = face.clone().multiplyScalar(0.62)
     return Array.from({ length: LAYERS }, (_, i) => {
       const k = i / (LAYERS - 1)
-      const shade = 1 - Math.pow(k, 0.42) * 0.38
       return {
         z: -k * depth,
-        color: new THREE.Color(shade, shade, shade),
+        color: face.clone().lerp(edge, Math.pow(k, 0.42)),
       }
     })
   }, [depth])
@@ -282,7 +300,7 @@ function Wordmark({
       <mesh position={[width * 0.004, -height * 0.018, -depth - width * 0.008]}>
         <planeGeometry args={[width, height]} />
         <meshBasicMaterial
-          map={texture}
+          map={stencil}
           color="#150E07"
           transparent
           opacity={0.22}
@@ -295,7 +313,7 @@ function Wordmark({
         <mesh key={i} position={[0, 0, z]}>
           <planeGeometry args={[width, height]} />
           <meshBasicMaterial
-            map={texture}
+            map={stencil}
             color={color}
             transparent
             alphaTest={0.45}
