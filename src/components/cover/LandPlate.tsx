@@ -270,13 +270,21 @@ function Wordmark({
   const y = (size.height / 2 - (box.y + box.h / 2)) * perPx
 
   const slices = useMemo(() => {
-    const face = new THREE.Color("#5b291c")
-    const edge = face.clone().multiplyScalar(0.62)
+    // Marrone terracotta/rame del brand (più vivo e luminoso)
+    const faceColor = new THREE.Color("#6B2A1A")
+
+    // Bordo di estrusione: marrone caldo medio (non più quasi nero)
+    const edgeColor = new THREE.Color("#421B10")
+
     return Array.from({ length: LAYERS }, (_, i) => {
       const k = i / (LAYERS - 1)
+
+      // Math.pow(k, 1.2) mantiene il colore chiaro della faccia frontale per più fette
+      const color = faceColor.clone().lerp(edgeColor, Math.pow(k, 1.2))
+
       return {
         z: -k * depth,
-        color: face.clone().lerp(edge, Math.pow(k, 0.42)),
+        color,
       }
     })
   }, [depth])
