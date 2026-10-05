@@ -130,7 +130,7 @@ export default function ProductsShowcase() {
 
                   <ButtonLink
                     href={`${WHATSAPP}?text=${encodeURIComponent(
-                      `Ciao OsFlumen, vorrei ordinare: ${product.name} (${product.format}).`
+                      `Ciao MAssimo, vorrei ordinare: ${product.name} (${product.format}).`
                     )}`}
                     external
                     className="mt-6 w-full"
