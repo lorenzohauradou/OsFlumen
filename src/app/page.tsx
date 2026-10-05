@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import { Galleria } from "@/components/cover/Galleria"
+// import { Galleria } from "@/components/cover/Galleria"
 import { Stage } from "@/components/cover/Stage"
 import { SITE } from "@/content/site"
 
@@ -19,7 +19,7 @@ export default function CoverPage() {
       </h1>
 
       <Stage />
-      <Galleria />
+      {/* <Galleria /> */}
 
       <footer className="border-t border-[var(--rigo)]">
         <div className="mx-auto flex max-w-[1180px] flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-10">
