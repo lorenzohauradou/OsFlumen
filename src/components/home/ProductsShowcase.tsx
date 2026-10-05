@@ -12,7 +12,6 @@ interface Product {
   image: string
   note: string
   featured?: boolean
-  /** Extra scaling so each pack photograph fills its frame consistently. */
   imageClass?: string
 }
 
@@ -23,7 +22,7 @@ const products: Product[] = [
     id: 1,
     name: "Bottiglia",
     format: "500 ml",
-    price: 14,
+    price: 13,
     image: "/images/product_bottle.png",
     note: "Il formato da tavola, per l'uso quotidiano a crudo",
     featured: true,
@@ -32,20 +31,20 @@ const products: Product[] = [
     id: 2,
     name: "Confezione da sei",
     format: "6 × 500 ml",
-    price: 75,
+    price: 70,
     image: "/images/bottles_product.png",
     note: "La scorta di famiglia, con un risparmio sul singolo pezzo",
     imageClass: "scale-110",
   },
-  {
-    id: 3,
-    name: "Latta",
-    format: "3 L",
-    price: 69,
-    image: "/images/latta3L.png",
-    note: "Latta schermata dalla luce, ideale per la conservazione lunga",
-    imageClass: "scale-[1.18]",
-  },
+  // {
+  //   id: 3,
+  //   name: "Latta",
+  //   format: "3 L",
+  //   price: 69,
+  //   image: "/images/latta3L.png",
+  //   note: "Latta schermata dalla luce, ideale per la conservazione lunga",
+  //   imageClass: "scale-[1.18]",
+  // },
 ]
 
 const euro = new Intl.NumberFormat("it-IT", {
@@ -70,7 +69,7 @@ export default function ProductsShowcase() {
                 I nostri <span className="italic text-olive">formati</span>
               </>
             }
-            description="Un solo olio, tre formati. Stessa raccolta, stessa molitura: cambia soltanto quanto ne vuoi in dispensa"
+            description="Un solo olio, due formati. Stessa raccolta, stessa molitura: cambia soltanto quanto ne vuoi in dispensa"
           />
 
           <Reveal delay={120}>
@@ -80,7 +79,8 @@ export default function ProductsShowcase() {
           </Reveal>
         </div>
 
-        <ul className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* max-w-4xl mx-auto mantiene le 2 card compatte e centrate */}
+        <ul className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
           {products.map((product, i) => (
             <Reveal as="li" key={product.id} delay={i * 110} className="h-full">
               <article
@@ -105,7 +105,7 @@ export default function ProductsShowcase() {
                     src={product.image}
                     alt={`OsFlumen ${product.name} — ${product.format}`}
                     fill
-                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 400px"
+                    sizes="(max-width: 768px) 100vw, 450px"
                     className={`object-contain p-8 transition-transform duration-700 ease-smooth
                                 group-hover:scale-[1.06] ${product.imageClass ?? ""}`}
                   />
