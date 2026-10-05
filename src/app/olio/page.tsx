@@ -7,7 +7,7 @@ import ProductsShowcase from "@/components/home/ProductsShowcase"
 import Features from "@/components/home/Features"
 import Terra from "@/components/home/Terra"
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection"
-import Recensioni from "@/components/home/Recensioni"
+// import Recensioni from "@/components/home/Recensioni"
 import Where from "@/components/home/Where"
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function OlioPage() {
         <Features />
         <Terra />
         <WhyChooseUsSection />
-        <Recensioni />
+        {/* <Recensioni /> */}
         <Where />
       </main>
       <Footer />

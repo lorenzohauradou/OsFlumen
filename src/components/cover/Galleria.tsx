@@ -72,7 +72,7 @@ export function Galleria() {
     >
       <div className="mb-8 flex items-end justify-between gap-6 px-6 lg:px-10">
         <h2 className="max-w-[18ch] text-[1.7rem] leading-[1.2] text-[var(--bruno)] sm:text-[2.1rem]">
-          Il campo, la pianta, la bottiglia
+          Òs Flumen
         </h2>
 
         <div className="flex shrink-0 items-center gap-3">
